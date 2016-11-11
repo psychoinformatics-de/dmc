@@ -23,18 +23,51 @@
   header {
     text-align: center;
   }
+  body {
+    background-image: url('../img/ice_cream_mobile.jpg');
+    background-position: center;
+    background-size: cover;
+    color: #fff;
+    font-size: 2em;
+    line-height: 1.5em;
+    text-align: center;
+    text-shadow: 0px 0px 20px #333;
+  }
+  @media screen and (min-width: 600px) {
+    body { width: 600px; }
+  }
+  @media screen and (min-width: 641px), screen and (min-height: 641px) {
+    body { background-image: url('../img/ice_cream.jpg'); }
+  }
+  footer {
+    background-color: rgba(255, 255, 255, 0.5);
+    border-top-left-radius: 0.5em;
+    border-top-right-radius: 0.5em;
+  }
+  footer p {
+    margin: 0.5em;
+  }
+  h1 {
+    font-size: 3em;
+    line-height: 1em;
+    margin-top: 1em;
+  }
   </style>
 </head>
 
 <body>
-<header>
-  <h1>Victory!</h1>
-</header>
 <main>
-  <p>Your submission has been received. We'll... uhh... work on this page.</p>
-  <p>Kinda mean of us to expect you to put in all this effort and leave you with
-     /nothing/ to show for it. This shall be remedied. We've got our top people
-     working on this.</p>
+  <h1>Thank You!</h1>
+  <p>After all that work, you deserve an ice cream cone. And because we
+     couldn't figure out how to 3d-print one directly from your device, this
+     picture will have to suffice.</p>
+  <p>Be sure to tell your friends.<br />
+     Good friends tell friends about ice cream opportunities.</p>
+
+  <!--
+  <p>Your submission has been received. Our top minions are pouring over it at this very moment.</p>
+  <p>We have very dedicated minions.</p>
+  -->
 </main>
 <footer>
   <p><small>
