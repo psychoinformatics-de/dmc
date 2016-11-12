@@ -13,14 +13,15 @@ function initSurvey(survey_name, survey, submit_button) {
   var events = ['click', 'keypress'];
   for (var i = 0, e; e = events[i++];) {
     submit_button.addEventListener(e, function() {
-      var form = new FormData(survey);
       var json = {};
-      for (var i = 0, field; field = form[i++];) {
-        if (field[0].substr(-2) === '[]') { // checkbox
-          json[field[0]] = json[field[0]] || []; // instantiate as array if needed
-          json[field[0]].push(field[1]);
-        } else {
-          json[field[0]] = field[1];
+      for (var i = 0, field; field = fields[i++];) {
+        if (field.name != undefined && field.name != '') {
+          if (field.name.substr(-2) === '[]') { // checkbox
+            json[field.name] = json[field.name] || []; // instantiate as array if needed
+            if (field.checked) { json[field.name].push(field.value); }
+          } else {
+            json[field.name] = field.value;
+          }
         }
       }
 
