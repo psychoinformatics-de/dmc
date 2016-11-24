@@ -1,14 +1,17 @@
 import os
+import argparse
 from os.path import join as opj
 from os.path import exists
 import json
 
-public_data_path = '/tmp/records/public/datascience'
-private_data_path = '/tmp/records/private/datascience'
-figure_path = 'www/datascience/stats'
+parser = argparse.ArgumentParser()
+parser.add_argument('--public', help='Input dir of public data', required=True)
+parser.add_argument('--private', help='Input dir for private data', required=True)
+parser.add_argument('--figures', help='Output dir for generated figures', required=True)
+args = parser.parse_args()
 
 
-def load_data(public=public_data_path, private=private_data_path):
+def load_data(public=args.public, private=args.private):
     data = []
     for id_ in os.listdir(public):
         pubd = json.load(open(opj(public, id_)))
@@ -76,6 +79,6 @@ def make_figures(df, outdir):
 if __name__ == '__main__':
     data = load_data()
     df = data2df(data)
-    if not exists(figure_path):
-        os.makedirs(figure_path)
-    make_figures(df, figure_path)
+    if not exists(args.figures):
+        os.makedirs(args.figures)
+    make_figures(df, args.figures)
