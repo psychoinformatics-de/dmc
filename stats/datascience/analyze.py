@@ -67,13 +67,16 @@ def data2df(data):
 
 
 def make_figures(df, outdir):
+    import matplotlib
+    matplotlib.use('Agg')  # avoid using the X backend for saving figures
+
     import pylab as pl
     import seaborn as sns
     pl.figure()
     sns.countplot(y='OS', data=df)
     pl.xlabel('Number of submissions')
     pl.ylabel('Primary operating system')
-    pl.savefig(opj(outdir, 'sub_by_os.png'))
+    pl.savefig(opj(outdir, 'graph_sub_by_os.png'))
 
 
 if __name__ == '__main__':
