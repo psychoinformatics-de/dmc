@@ -21,9 +21,10 @@ help:
 
 html: records
 	[ -d $(OUTPUTDIR) ] || mkdir -p $(OUTPUTDIR)
-	rsync -r --delete $(BASEDIR)/www/ $(OUTPUTDIR)/www/
-	rsync -r --delete $(BASEDIR)/server/ $(OUTPUTDIR)/server/
-	rsync -r $(BASEDIR)/records/ $(OUTPUTDIR)/records/
+	rsync -r --delete $(BASEDIR)/www/ $(OUTPUTDIR)/www
+	rsync -r --delete $(BASEDIR)/server/ $(OUTPUTDIR)/server
+	rsync -r --delete $(BASEDIR)/stats/ $(OUTPUTDIR)/stats
+	rsync -r $(BASEDIR)/records/ $(OUTPUTDIR)/records
 
 clean:
 	[ -d $(OUTPUTDIR) ] && rm -rf $(OUTPUTDIR)
@@ -36,10 +37,12 @@ rsync_upload: html
 ifdef SSH_USER
 	rsync -e "ssh -p $(SSH_PORT)" -rv --delete $(OUTPUTDIR)/www/ $(SSH_USER)@$(SSH_HOST):$(SSH_TARGET_DIR)/www
 	rsync -e "ssh -p $(SSH_PORT)" -rv --delete $(OUTPUTDIR)/server/ $(SSH_USER)@$(SSH_HOST):$(SSH_TARGET_DIR)/server
+	rsync -e "ssh -p $(SSH_PORT)" -rv --delete $(OUTPUTDIR)/stats/ $(SSH_USER)@$(SSH_HOST):$(SSH_TARGET_DIR)/stats
 	rsync -e "ssh -p $(SSH_PORT)" -rv $(OUTPUTDIR)/records/ $(SSH_USER)@$(SSH_HOST):$(SSH_TARGET_DIR)/records
 else
 	rsync -e "ssh -p $(SSH_PORT)" -rv --delete $(OUTPUTDIR)/www/ $(SSH_HOST):$(SSH_TARGET_DIR)/www
 	rsync -e "ssh -p $(SSH_PORT)" -rv --delete $(OUTPUTDIR)/server/ $(SSH_HOST):$(SSH_TARGET_DIR)/server
+	rsync -e "ssh -p $(SSH_PORT)" -rv --delete $(OUTPUTDIR)/stats/ $(SSH_HOST):$(SSH_TARGET_DIR)/stats
 	rsync -e "ssh -p $(SSH_PORT)" -rv $(OUTPUTDIR)/records/ $(SSH_HOST):$(SSH_TARGET_DIR)/records
 endif
 
