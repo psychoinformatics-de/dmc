@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0" />
+  <meta name="description" content="How-Do-You-Science Demo" />
+  <meta name="author" content="Psychoinformatics Lab" />
+
+  <title>Survey — How Do You Neuroimaging?</title>
+
+  <link rel='stylesheet' href='/css/dmc.css' />
+  <link rel='stylesheet' href='/css/survey.css' />
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v2">
+  <link rel="icon" type="image/png" href="/favicon-32x32.png?v2" sizes="32x32">
+  <link rel="icon" type="image/png" href="/favicon-16x16.png?v2" sizes="16x16">
+  <link rel="manifest" href="/manifest.json?v2">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg?v2" color="#5bbad5">
+  <link rel="shortcut icon" href="/favicon.ico?v2">
+  <meta name="theme-color" content="#ffffff">
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      survey = document.getElementById("survey");
+      fields = survey.elements;
+    });
+  </script>
+  <noscript><style>#survey, #start { display: none; }</style></noscript>
+</head>
+
+<body>
+<noscript>
+  <h1>This Survey Requires JavaScript</h1>
+  <p>I know, I know...
+    <br />Sites requiring JavaScript bother me too. And now I'm among them. Argh!
+    <br />But I kinda need JS to figure out which survey questions should be asked.
+    <br />
+    <br />I can, however, assure you that we're not showing ads, tracking you, or committing any other form of mass-malarky.
+    <br />
+    <br />This is a <em>Zero Malarky Zone</em> (ZMZ).
+    <br />I promise.
+    <br />
+    <br />&mdash;Alex (of the League Against Web Malarky)
+  </p>
+</noscript>
+
+<header>
+  <h1>How Do <strong>You</strong> Neuroimaging?</h1>
+  <a id='start' class='icon-right-open button'>Take the Survey</a>
+  <!-- TODO: we actually need an email address (of the lab)
+            => adapt depending on intention
+  -->
+  <p>no&nbsp;email&nbsp;or&nbsp;account&nbsp;required</p>
+</header>
+
+<main>
+<p id='blurb'>
+  <!-- TODO: Adapt -->
+  Tell us about your attitudes and experiences. With attitude.<br />
+  Conducted by Alex Waite, Michael Hanke, and a ferocious wombat.
+</p>
+<form id='survey' autocomplete='off'>
+  <input name='client_version' type='hidden' value='1' />
+
+  <div class='timeline'>
+    <div class='tl-panel badge-university visible'>
+      <h2>Institution</h2>
+      <p>Select the institution you are from</p>
+      <select name='institution' required>
+          <option value='' disabled selected hidden>— Select —</option>
+          <option>OvGU (without Hospital)</option>
+          <option>Leibniz Institute for Neurobiology</option>
+          <option>University Hospital Magdeburg</option>
+          <option>German Centre for Neurodegenerative Diseases</option>
+      </select>
+    </div>
+
+    <div class='tl-panel badge-university'>
+      <h2>Lab</h2>
+      <p>What lab are you from?</p>
+      <input name='lab' type='text' required>
+    </div>
+
+    <div class='tl-panel badge-university'>
+      <h2>How many people are doing data analyses in your lab?</h2>
+      <input name='lab_people_count' type='number'>
+    </div>
+
+    <div class='tl-panel badge-university'>
+      <h2>What is your role in the lab?</h2>
+      <p>Select what fits best</p>
+      <select name='role' required>
+          <option value='' disabled selected hidden>— Select —</option>
+          <option>Undergraduate student</option>
+          <option>PhD student</option>
+          <option>Postdoc</option>
+          <option>Professor/Supervisor</option>
+          <option>Research assistant</option>
+          <option>Other researcher</option>
+          <option>System administrator</option>
+          <option>Other</option>
+      </select>
+    </div>
+
+    <div class='tl-panel badge-pencil'>
+      <h2>Contact</h2>
+      <p>What email address shall we use to contact your lab?</p>
+      <input name='lab_contact' type='email' required>
+    </div>
+
+    <div class='tl-panel inverted badge-laptop'>
+      <h2>OS</h2>
+      <p>What platform is primarily used for analyses in your lab?</p>
+      <select name="lab_OS" required>
+        <option value="" disabled selected hidden>— Select —</option>
+        <option>Linux</option>
+        <option>OS X/iOS</option>
+        <option>Windows</option>
+        <option>Other</option>
+        <!-- TODO: Other => text input?
+             TODO: Linux => more specific if choosen?
+        -->
+      </select>
+    </div>
+
+    <div class='tl-panel inverted badge-laptop'>
+      <h2>Shared infrastructure</h2>
+      <p>Does your lab <em>use</em> shared computing infrastructure?</p>
+      <select name="use_shared" required>
+        <option value="" disabled selected hidden>— Select —</option>
+        <option>Yes</option>
+        <option>No</option>
+      </select>
+    </div>
+
+    <div class='tl-panel badge-cloud'>
+      <h2>Analysis webservices</h2>
+      <p>What webservices does your lab use for data analysis?</p>
+      <div class='checkboxes extendable'>
+        <label><input type='checkbox' name='webservices_list[]'
+          value='loni'> loni</label>
+        <label><input type='checkbox' name='webservices_list[]'
+          value='neurosynth'> neurosynth</label>
+        <label><input type='checkbox' name='webservices_list[]'
+          value='neurovault'> neurovault</label>
+        <label><input type='checkbox' name='webservices_list[]'
+          value='nitrc-ce'> nitrc-ce</label>
+        <label><input type='checkbox' name='webservices_list[]'
+          value='flywheel.io'> flywheel.io</label>
+      </div>
+    </div>
+
+    <div class='tl-panel badge-list'>
+      <h2>Software</h2>
+      <p>Which data analysis software do you use?</p>
+      <div class='checkboxes extendable'>
+        <label><input type='checkbox' name='sw_list[]'
+          value='AFNI'> AFNI</label>
+        <label><input type='checkbox' name='sw_list[]'
+          value='brainvisa'> brainvisa</label>
+        <label><input type='checkbox' name='sw_list[]'
+          value='BrainVoyager'> BrainVoyager</label>
+        <label><input type='checkbox' name='sw_list[]'
+          value='Camino'> Camino</label>
+        <label><input type='checkbox' name='sw_list[]'
+          value='DTI-Query'> DTI-Query</label>
+        <label><input type='checkbox' name='sw_list[]'
+          value='DTIStudio'> DTIStudio</label>
+        <label><input type='checkbox' name='sw_list[]'
+          value='DTItk'> DTItk</label>
+        <label><input type='checkbox' name='sw_list[]'
+          value='Freesurfer'> Freesurfer</label>
+        <label><input type='checkbox' name='sw_list[]'
+          value='FSL'> FSL</label>
+        <label><input type='checkbox' name='sw_list[]'
+          value='ImageJ'> ImageJ</label>
+        <label><input type='checkbox' name='sw_list[]'
+          value='ITK'> ITK</label>
+        <label><input type='checkbox' name='sw_list[]'
+          value='Lipsia'> Lipsia</label>
+        <label><input type='checkbox' name='sw_list[]'
+          value='LORIS'> LORIS</label>
+        <label><input type='checkbox' name='sw_list[]'
+          value='mipav'> mipav</label>
+        <label><input type='checkbox' name='sw_list[]'
+          value='mrtrix'> mrtrix</label>
+        <label><input type='checkbox' name='sw_list[]'
+          value='nibabel'> nibabel</label>
+        <label><input type='checkbox' name='sw_list[]'
+          value='nipy'> nipy</label>
+        <label><input type='checkbox' name='sw_list[]'
+          value='PROBID'> PROBID</label>
+        <label><input type='checkbox' name='sw_list[]'
+          value='PyMVPA'> PyMVPA</label>
+        <label><input type='checkbox' name='sw_list[]'
+          value='scikit-learn'> scikit-learn</label>
+        <label><input type='checkbox' name='sw_list[]'
+          value='SPM'> SPM</label>
+        <label><input type='checkbox' name='sw_list[]'
+          value='vistasoft'> vistasoft</label>
+        <label><input type='checkbox' name='sw_list[]'
+          value='Trackvis'> Trackvis</label>
+        <label><input type='checkbox' name='sw_list[]'
+          value='Voxbo'> Voxbo</label>
+        <label><input type='checkbox' name='sw_list[]'
+          value='VTK'> VTK</label>
+      </div>
+    </div>
+
+    <div class="tl-panel badge-heart">
+      <h2>Desired analyses</h2>
+      <p>What analysis procedures/workflows would you most appreciate us to make available?</p>
+      <input name="analyses_desired" type="text">
+    </div>
+
+    <div class="tl-panel badge-upload">
+      <h2>Your contribution</h2>
+      <p>What methods/tools developed in your lab would you like to become available?</p>
+      <input name="own_methods" type="text">
+    </div>
+
+
+    <div class='tl-panel inverted badge-code'>
+      <h2>Version Control</h2>
+      <p>Do you use version control systems for your <strong>code</strong>?</p>
+      <select name='vcs_code' required>
+        <option value='' disabled selected hidden>— Select —</option>
+        <option>Yes</option>
+        <option>No</option>
+      </select>
+      <script>document.addEventListener('DOMContentLoaded', function() {
+        fields['vcs_code'].postValidation = function() {
+          var panel = getPanel(this);
+          if (this.value == 'Yes') {
+            hidePanel(fields['vcs_code_why_not[]']);
+            panel.dataset.nextPanel = 'vcs_code_list[]';
+          } else {
+            hidePanel(fields['vcs_code_list[]']);
+            panel.dataset.nextPanel = 'vcs_code_why_not[]';
+          }
+        }
+      });</script>
+    </div>
+
+    <div class='tl-panel inverted badge-code' data-next-panel='vcs_data'>
+      <h2>Which VCSs</h2>
+      <p>Which version control systems do you use?</p>
+      <div class='checkboxes extendable'>
+        <label><input type='checkbox' name='vcs_code_list[]'
+          value='CVS'> CVS</label>
+        <label><input type='checkbox' name='vcs_code_list[]'
+          value='git'> Git</label>
+        <label><input type='checkbox' name='vcs_code_list[]'
+          value='mercurial'> Mercurial</label>
+        <label><input type='checkbox' name='vcs_code_list[]'
+          value='Subversion'> Subversion</label>
+      </div>
+    </div>
+
+    <div class='tl-panel inverted badge-code'>
+      <h2>Why Not?</h2>
+      <p>Why don't you use a version control system?</p>
+      <div class='checkboxes'>
+        <label><input type='checkbox' name='vcs_code_why_not[]'
+          value='unfamiliar'> Lack of familiarity</label>
+        <label><input type='checkbox' name='vcs_code_why_not[]'
+          value='unbenefical'> The benefits don't seem apparent</label>
+        <label><input type='checkbox' name='vcs_code_why_not[]'
+          value='unlearnable'> Too steep of a learning curve</label>
+        <label><input type='checkbox' name='vcs_code_why_not[]'
+          value='unneeded'> I rarely code</label>
+        <label><input type='checkbox' name='vcs_code_why_not[]'
+          value='unintegrated'> Lack of integration with my tools/platform</label>
+        <label><input type='checkbox' name='vcs_code_why_not[]'
+          value='other'> Other</label>
+      </div>
+    </div>
+
+    <div class='tl-panel inverted badge-code'>
+      <h2>Version Control</h2>
+      <p>Do you use version control systems for your <strong>data</strong>?</p>
+      <select name='vcs_data' required>
+        <option value='' disabled selected hidden>— Select —</option>
+        <option>Yes</option>
+        <option>No</option>
+      </select>
+      <script>document.addEventListener('DOMContentLoaded', function() {
+        fields['vcs_data'].postValidation = function() {
+          var panel = getPanel(this);
+          if (this.value == 'Yes') {
+            hidePanel(fields['vcs_data_list[]']);
+            panel.dataset.nextPanel = 'vcs_data_list[]';
+          } else {
+            hidePanel(fields['vcs_data_list[]']);
+            panel.dataset.nextPanel = 'vcs_data_why_not[]';
+          }
+        }
+      });</script>
+    </div>
+
+    <div class='tl-panel inverted badge-code' data-next-panel='knows_bids'>
+      <h2>Which VCSs</h2>
+      <p>Which data version control systems do you use?</p>
+      <div class='checkboxes extendable'>
+        <label><input type='checkbox' name='vcs_data_list[]'
+          value='CVS'> CVS</label>
+        <label><input type='checkbox' name='vcs_data_list[]'
+          value='git'> Git</label>
+        <label><input type='checkbox' name='vcs_data_list[]'
+          value='mercurial'> Mercurial</label>
+        <label><input type='checkbox' name='vcs_data_list[]'
+          value='Subversion'> Subversion</label>
+        <label><input type='checkbox' name='vcs_data_list[]'
+          value='git-annex'> git-annex</label>
+        <label><input type='checkbox' name='vcs_data_list[]'
+          value='git-lfs'> git-lfs</label>
+        <label><input type='checkbox' name='vcs_data_list[]'
+          value='ipfs'> ipfs</label>
+        <label><input type='checkbox' name='vcs_data_list[]'
+          value='dat'> dat</label>
+      </div>
+    </div>
+
+    <div class='tl-panel inverted badge-code'>
+      <h2>Why Not?</h2>
+      <p>Why don't you use a data version control system?</p>
+      <div class='checkboxes'>
+        <label><input type='checkbox' name='vcs_data_why_not[]'
+          value='unrealized'> Didn't realize it is (pragmatically) possible</label>
+        <label><input type='checkbox' name='vcs_data_why_not[]'
+          value='unfamiliar'> Lack of familiarity</label>
+        <label><input type='checkbox' name='vcs_data_why_not[]'
+          value='unbenefical'> The benefits don't seem apparent</label>
+        <label><input type='checkbox' name='vcs_data_why_not[]'
+          value='unlearnable'> Too steep of a learning curve</label>
+        <label><input type='checkbox' name='vcs_data_why_not[]'
+          value='unintegrated'> Lack of integration with my tools/platform</label>
+        <label><input type='checkbox' name='vcs_data_why_not[]'
+          value='other'> Other</label>
+      </div>
+    </div>
+
+    <div class="tl-panel badge-code">
+      <h2>BIDS</h2>
+      <p>Have you heard of BIDS?</p>
+      <select name="knows_bids" required>
+        <option value="" disabled selected hidden>— Select —</option>
+        <option>Yes</option>
+        <option>No</option>
+      </select>
+    </div>
+
+    <!-- TODO: Only if "Yes" was choosen above? -->
+    <div class="tl-panel badge-code">
+      <h2>BIDS</h2>
+      <p>Have you used data in BIDS format?</p>
+      <select name="used_bids" required>
+        <option value="" disabled selected hidden>— Select —</option>
+        <option>Yes</option>
+        <option>No</option>
+      </select>
+    </div>
+
+    <div class="tl-panel badge-search">
+      <h2>Scanners</h2>
+      <p>What Scanners are used by your lab?</p>
+      <div class='checkboxes extendable'>
+        <label><input type='checkbox' name='scanners[]'
+          value='magnetom'> 7T Siemens Magnetom</label>
+        <label><input type='checkbox' name='scanners[]'
+          value='verio'> 3T Siemens Verio</label>
+        <label><input type='checkbox' name='scanners[]'
+          value='skyra'> 3T Siemens Skyra</label>
+        <label><input type='checkbox' name='scanners[]'
+          value='prisma'> 3T Siemens Prisma</label>
+        <label><input type='checkbox' name='scanners[]'
+          value='achieva'> 3T Philips Achieva</label>
+        <label><input type='checkbox' name='scanners[]'
+          value='meg'> MEG</label>
+      </div>
+    </div>
+
+    <div class="tl-panel badge-database">
+      <h2>Amount of acquisitions</h2>
+      <p>How many hours of scans per month are acquired by your lab?</p>
+      <input name="hrs_scan" type="number" required>
+    </div>
+
+    <div class="tl-panel badge-users">
+      <h2>Human subjects</h2>
+      <!-- TODO: Wording! -->
+      <p>What's the percentage of human subjects scanned?</p>
+      <!-- TODO: step? Is there an even better way to ask for a ratio? -->
+      <input name="human_subjects" type="number" min="0" max="100">
+    </div>
+
+    <div class="tl-panel badge-users">
+      <h2>Patients</h2>
+      <!-- TODO: Wording! -->
+      <p>What's the percentage of patients scanned?</p>
+      <!-- TODO: step? Is there an even better way to ask for a ratio? -->
+      <input name="patient_subjects" type="number" min="0" max="100">
+    </div>
+
+    <div class="tl-panel badge-heart">
+      <h2>Physiological Data</h2>
+      <!-- TODO: Is this really just a Yes-No-question? -->
+      <p>Do you acquire physiological data in addition?</p>
+      <select name="physio_data" required>
+        <option value="" disabled selected hidden>— Select —</option>
+        <option>Yes</option>
+        <option>No</option>
+      </select>
+    </div>
+
+    <div class="tl-panel badge-plus">
+      <h2>Additional devices</h2>
+      <p>Do you use additional devices with the scanner(s)?</p>
+      <!-- TODO: Is this really just a Yes-No-question? -->
+      <select name="additional_devices" required>
+        <option value="" disabled selected hidden>— Select —</option>
+        <option>Yes</option>
+        <option>No</option>
+      </select>
+    </div>
+
+    <div class="tl-panel badge-cogs">
+      <h2>DICOM conversion</h2>
+      <p>What conversion do you use for DICOMs?</p>
+      <div class='checkboxes extendable'>
+        <label><input type='checkbox' name='dcm_conv[]'
+          value='default'> just &ldquo;from scanner&rdquo;</label>
+        <label><input type='checkbox' name='dcm_conv[]'
+          value='dcm2nii'> dcm2nii</label>
+        <label><input type='checkbox' name='dcm_conv[]'
+          value='dcm2niix'> dcm2niix</label>
+        <label><input type='checkbox' name='dcm_conv[]'
+          value='dicomnifty'> dicomnifty</label>
+        <label><input type='checkbox' name='dcm_conv[]'
+          value='mriconvert'> mriconvert</label>
+        <label><input type='checkbox' name='dcm_conv[]'
+          value='mri_convert'> mri_convert</label>
+        <label><input type='checkbox' name='dcm_conv[]'
+          value='dcmstack'> dcmstack</label>
+      </div>
+    </div>
+
+
+    <div class="tl-panel badge-wrench">
+      <h2>Stimulation logs</h2>
+      <!-- TODO: Split question? => what software? Do you have such logs at all? -->
+      <p>Do you use standard or custom logfile formats?</p>
+      <select name='custom_logs' required>
+        <option value='' disabled selected hidden>— Select —</option>
+        <option>Standard</option>
+        <option>Custom</option>
+      </select>
+    </div>
+
+    <div class="tl-panel badge-clock">
+      <h2>Time until publication</h2>
+      <p>What's the timeframe from end of acquisition until submission of a publication?</p>
+      <!-- TODO: What do want? Number of days, weeks, months? -->
+      <input name="pub_time" type="number" required>
+    </div>
+
+    <!-- TODO: typical issues with convertion, loss of data, etc. ? -->
+
+
+    <div class='tl-panel inverted badge-glass'>
+      <h2>All Done!</h2>
+      <p>And <em>well done</em>.</p>
+      <a id='done' class='button' role='button' tabindex='0'><i class='icon-right-open'></i>Submit</a>
+      <input name='done' type='hidden' />
+    </div>
+  </div>
+</form>
+</main>
+<footer>
+  <p><small>
+    <!-- TODO: Adapt -->
+    ©2015&ndash;2016 Alex Waite
+    <span class='break'>&nbsp;&mdash;&nbsp;</span>
+    source code on <a href="https://github.com/psychoinformatics-de/dmc">GitHub</a>
+    <br /><a href="http://psychoinformatics.de">psychoinformatics.de</a>
+  </small></p>
+</footer>
+
+<script src="/js/survey.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // init the survey
+  initSurvey('cbbs_imaging', survey, survey.querySelector('#done'));
+
+  // landing button
+  var start = document.getElementById('start');
+  var blurb = document.getElementById('blurb');
+  var first_panel = survey.querySelector('.tl-panel.visible');
+  var events = ['click', 'keypress'];
+  for (var i = 0, e; e = events[i++];) {
+    start.addEventListener(e, function() {
+      scrollTo(blurb, 1500);
+      first_panel.querySelector('input,select').focus();
+    });
+  }
+});
+</script>
+</body>
+</html>
