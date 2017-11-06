@@ -82,8 +82,8 @@
     </div>
 
     <div class='tl-panel badge-university'>
-      <h2>How many people are doing data analyses in your lab?</h2>
-      <input name='lab_people_count' type='number'>
+      <h2>How many people are doing neuroimaging data analyses in your lab?</h2>
+      <input name='lab_people_count' type='number' required>
     </div>
 
     <div class='tl-panel badge-university'>
@@ -109,23 +109,54 @@
     </div>
 
     <div class='tl-panel inverted badge-laptop'>
-      <h2>OS</h2>
-      <p>What platform is primarily used for analyses in your lab?</p>
+      <h2>Operating System</h2>
+      <p>What operating system is primarily used for neuroimaging analyses in your lab?</p>
       <select name="lab_OS" required>
         <option value="" disabled selected hidden>— Select —</option>
         <option>Linux</option>
         <option>OS X/iOS</option>
         <option>Windows</option>
         <option>Other</option>
-        <!-- TODO: Other => text input?
-             TODO: Linux => more specific if choosen?
-        -->
       </select>
+      <script>document.addEventListener("DOMContentLoaded", function() {
+        fields['lab_OS'].postValidation = function() {
+          var panel = getPanel(this);
+          if (this.value == 'Linux') {
+            hidePanel(fields['lab_OS_other']);
+            panel.dataset.nextPanel = 'lab_OS_linux';
+          } else if (this.value == 'Other') {
+            hidePanel(fields['lab_OS_linux']);
+            panel.dataset.nextPanel = 'lab_OS_other';
+          } else {
+            hidePanel(fields['lab_OS_linux'], fields['lab_OS_other']);
+            panel.dataset.nextPanel = 'use_shared';
+          }
+        }
+      });</script>
+    </div>
+
+    <div class='tl-panel inverted badge-linux' data-next-panel="use_shared">
+      <h2>Linux Distribution</h2>
+      <p>What kind of Linux distribution are we talking about?</p>
+      <select name="lab_OS_linux" required>
+        <option value="" disabled selected hidden>— Select —</option>
+        <option>Debian/Ubuntu</option>
+        <option>RedHat/CentOS</option>
+        <option>Other</option>
+        <option>Don't know</option>
+      </select>
+    </div>
+
+    <div class='tl-panel inverted badge-terminal' data-next-panel='use_shared'>
+      <h2>Other OS</h2>
+      <p><em>Alright.</em> We admit it, you've piqued our curiosity. What is
+         this awesome system you run?</p>
+      <input name="lab_OS_other" type="text" required>
     </div>
 
     <div class='tl-panel inverted badge-laptop'>
       <h2>Shared infrastructure</h2>
-      <p>Does your lab <em>use</em> shared computing infrastructure?</p>
+      <p>Does your lab <em>use</em> shared workstations, computing cluster or other shared computing infrastructure?</p>
       <select name="use_shared" required>
         <option value="" disabled selected hidden>— Select —</option>
         <option>Yes</option>
@@ -152,7 +183,7 @@
 
     <div class='tl-panel badge-list'>
       <h2>Software</h2>
-      <p>Which data analysis software do you use?</p>
+      <p>Which data analysis software is used in your lab?</p>
       <div class='checkboxes extendable'>
         <label><input type='checkbox' name='sw_list[]'
           value='AFNI'> AFNI</label>
@@ -209,20 +240,26 @@
 
     <div class="tl-panel badge-heart">
       <h2>Desired analyses</h2>
-      <p>What analysis procedures/workflows would you most appreciate us to make available?</p>
-      <input name="analyses_desired" type="text">
+      <p>What analysis procedures/workflows would your lab most appreciate us to make available?</p>
+      <div class='checkboxes extendable'>
+        <!-- TODO: How to assign a name without the first checkbox? -->
+        <label><input type="checkbox" name="analyses_wanted[]"
+          value="None"> None</label>
+      </div>
     </div>
 
     <div class="tl-panel badge-upload">
       <h2>Your contribution</h2>
       <p>What methods/tools developed in your lab would you like to become available?</p>
-      <input name="own_methods" type="text">
+      <div class='checkboxes extendable'>
+        <label><input type="checkbox" name="analyses_contrib[]"
+          value="None"> None</label>
+      </div>
     </div>
 
-
     <div class='tl-panel inverted badge-code'>
-      <h2>Version Control</h2>
-      <p>Do you use version control systems for your <strong>code</strong>?</p>
+      <h2>Version Control for Code</h2>
+      <p>Does your lab use version control systems for <strong>code</strong>?</p>
       <select name='vcs_code' required>
         <option value='' disabled selected hidden>— Select —</option>
         <option>Yes</option>
@@ -277,7 +314,7 @@
     </div>
 
     <div class='tl-panel inverted badge-code'>
-      <h2>Version Control</h2>
+      <h2>Version Control for Data</h2>
       <p>Do you use version control systems for your <strong>data</strong>?</p>
       <select name='vcs_data' required>
         <option value='' disabled selected hidden>— Select —</option>
@@ -342,7 +379,7 @@
 
     <div class="tl-panel badge-code">
       <h2>BIDS</h2>
-      <p>Have you heard of BIDS?</p>
+      <p>Have you heard of the Brain Imaging Data Structure (BIDS)?</p>
       <select name="knows_bids" required>
         <option value="" disabled selected hidden>— Select —</option>
         <option>Yes</option>
@@ -350,10 +387,9 @@
       </select>
     </div>
 
-    <!-- TODO: Only if "Yes" was choosen above? -->
     <div class="tl-panel badge-code">
       <h2>BIDS</h2>
-      <p>Have you used data in BIDS format?</p>
+      <p>Has your lab worked with data in BIDS format?</p>
       <select name="used_bids" required>
         <option value="" disabled selected hidden>— Select —</option>
         <option>Yes</option>
@@ -382,30 +418,25 @@
 
     <div class="tl-panel badge-database">
       <h2>Amount of acquisitions</h2>
-      <p>How many hours of scans per month are acquired by your lab?</p>
-      <input name="hrs_scan" type="number" required>
+      <p>How many hours of scans per month are approximately acquired by your lab on average?</p>
+      <input name="hrs_scan" type="number" min="0" required>
     </div>
 
     <div class="tl-panel badge-users">
       <h2>Human subjects</h2>
-      <!-- TODO: Wording! -->
-      <p>What's the percentage of human subjects scanned?</p>
-      <!-- TODO: step? Is there an even better way to ask for a ratio? -->
-      <input name="human_subjects" type="number" min="0" max="100">
+      <p>Circa what percentage of acquisitions in your lab involve human subjects?</p>
+      <input name="human_subjects" type="number" min="0" max="100" step="10">
     </div>
 
     <div class="tl-panel badge-users">
       <h2>Patients</h2>
-      <!-- TODO: Wording! -->
-      <p>What's the percentage of patients scanned?</p>
-      <!-- TODO: step? Is there an even better way to ask for a ratio? -->
-      <input name="patient_subjects" type="number" min="0" max="100">
+      <p>Circa what percentage of human subjects are patients?</p>
+      <input name="patient_subjects" type="number" min="0" max="100" step="10">
     </div>
 
     <div class="tl-panel badge-heart">
       <h2>Physiological Data</h2>
-      <!-- TODO: Is this really just a Yes-No-question? -->
-      <p>Do you acquire physiological data in addition?</p>
+      <p>Does your lab normally acquire physiological data (pulse oximeter, respiratory belt etc.) in parallel to MRI?</p>
       <select name="physio_data" required>
         <option value="" disabled selected hidden>— Select —</option>
         <option>Yes</option>
@@ -415,18 +446,18 @@
 
     <div class="tl-panel badge-plus">
       <h2>Additional devices</h2>
-      <p>Do you use additional devices with the scanner(s)?</p>
-      <!-- TODO: Is this really just a Yes-No-question? -->
-      <select name="additional_devices" required>
-        <option value="" disabled selected hidden>— Select —</option>
-        <option>Yes</option>
-        <option>No</option>
-      </select>
+      <p>What additional acquisition devices does your lab use with the scanner(s)?</p>
+      <div class='checkboxes extendable'>
+        <label><input type='checkbox' name='add_devices[]'
+          value='eyetracker'> Eye tracker</label>
+        <label><input type='checkbox' name='add_devices[]'
+          value='keypad'> Keypad</label>
+      </div>
     </div>
 
     <div class="tl-panel badge-cogs">
       <h2>DICOM conversion</h2>
-      <p>What conversion do you use for DICOMs?</p>
+      <p>What conversion for DICOMs is used in your lab?</p>
       <div class='checkboxes extendable'>
         <label><input type='checkbox' name='dcm_conv[]'
           value='default'> just &ldquo;from scanner&rdquo;</label>
@@ -459,13 +490,11 @@
 
     <div class="tl-panel badge-clock">
       <h2>Time until publication</h2>
-      <p>What's the timeframe from end of acquisition until submission of a publication?</p>
-      <!-- TODO: What do want? Number of days, weeks, months? -->
-      <input name="pub_time" type="number" required>
+      <p>Please estimate how many months does it typically take in your lab from end of acquisition until submission of a publication?</p>
+      <input name="pub_time" type="number" min="0" required>
     </div>
 
     <!-- TODO: typical issues with convertion, loss of data, etc. ? -->
-
 
     <div class='tl-panel inverted badge-glass'>
       <h2>All Done!</h2>
