@@ -57,8 +57,8 @@ main {
  */
 @font-face {
   font-family: 'fontello';
-  src: url('../fonts/fontello.woff2?48658638') format('woff2'),
-       url('../fonts/fontello.woff?48658638') format('woff'); /* <= IE 11 and Safari 9.1 */
+  src: url('../fonts/fontello.woff2?79360481') format('woff2'),
+       url('../fonts/fontello.woff?79360481') format('woff'); /* <= IE 11 and Safari 9.1 */
   font-weight: normal;
   font-style: normal;
 }
@@ -125,7 +125,10 @@ main {
 .icon-share::before, .badge-share::before { content: '\f1e0'; }
 .icon-hash::before, .badge-hash::before { content: '\f292'; }
 .icon-percent::before, .badge-percent::before { content: '\f295'; }
-
+.icon-bed:before, .badge-bed:before { content: '\f236'; }
+.icon-male:before, .badge-male:before { content: '\f183'; }
+.icon-magnet:before, .badge-magnet:before { content: '\e810'; }
+.icon-heartbeat:before, .badge-heartbeat:before { content: '\f21e'; }
 
 /*
  *  Element overrides
