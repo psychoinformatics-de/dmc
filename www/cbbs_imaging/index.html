@@ -47,17 +47,28 @@
 <header>
   <h1>How Do <strong>You</strong> Neuroimaging?</h1>
   <a id='start' class='icon-right-open button'>Take the Survey</a>
-  <!-- TODO: we actually need an email address (of the lab)
+  <!-- we actually need an email address (of the lab)
             => adapt depending on intention
-  -->
   <p>no&nbsp;email&nbsp;or&nbsp;account&nbsp;required</p>
+  -->
 </header>
 
 <main>
 <p id='blurb'>
   <!-- TODO: Adapt -->
-  Tell us about your attitudes and experiences. With attitude.<br />
-  Conducted by Alex Waite, Michael Hanke, and a ferocious wombat.
+  The goal of the CBBS imaging platform is to develop and provide a shared
+  computing infrastructure for brain imaging research in Magdeburg. This
+  platform aims to streamline routine data preparation and processing tasks,
+  and to offer cutting edge data analysis techniques, developed here in Magdeburg
+  or elsewhere.<br />
+  The results of this survey will inform the development of the imaging platform
+  and are the basis for a prioritization of work packages.<br />
+  Please help us to assemble an accurate picture on established practices and tools used and
+  developed in Magdeburg. Ideally, each lab working with brain imaging will have this survey
+  completed by one representative who has a good understanding of routines
+  and technical infrastructure used in the lab.
+
+  For any inquiries, please contact <a href="mailto:michael.hanke@ovgu.de">Michael Hanke</a>.
 </p>
 <form id='survey' autocomplete='off'>
   <input name='client_version' type='hidden' value='1' />
@@ -71,7 +82,7 @@
           <option>OvGU (without Hospital)</option>
           <option>Leibniz Institute for Neurobiology</option>
           <option>University Hospital Magdeburg</option>
-          <option>German Centre for Neurodegenerative Diseases</option>
+          <option>DZNE Magdeburg</option>
           <option>Other</option>
       </select>
     </div>
@@ -105,7 +116,7 @@
 
     <div class='tl-panel badge-pencil'>
       <h2>Contact</h2>
-      <p>What email address shall we use to contact your lab?</p>
+      <p>What email address shall we use to contact your lab regarding CBBS imaging platform activities?</p>
       <input name='lab_contact' type='email' required>
     </div>
 
@@ -143,7 +154,7 @@
 
     <div class='tl-panel inverted badge-laptop'>
       <h2>Shared infrastructure</h2>
-      <p>Does your lab <em>use</em> shared workstations, computing cluster or other shared computing infrastructure?</p>
+      <p>Does your lab conduct data analysis on remote workstations, computing clusters or other shared computing infrastructure?</p>
       <select name="use_shared" required>
         <option value="" disabled selected hidden>— Select —</option>
         <option>Yes</option>
@@ -153,16 +164,16 @@
 
     <div class='tl-panel badge-cloud'>
       <h2>Analysis webservices</h2>
-      <p>What webservices does your lab use for data analysis?</p>
+      <p>What webservices does your lab use for neuroimaging data analysis?</p>
       <div class='checkboxes extendable'>
         <label><input type='checkbox' name='webservices_list[]'
-          value='loni'> loni</label>
+          value='nitrc-ce'> NITRC-CE</label>
         <label><input type='checkbox' name='webservices_list[]'
-          value='neurosynth'> neurosynth</label>
+          value='loni'> LONI</label>
         <label><input type='checkbox' name='webservices_list[]'
-          value='neurovault'> neurovault</label>
+          value='neurosynth'> NeuroSynth</label>
         <label><input type='checkbox' name='webservices_list[]'
-          value='nitrc-ce'> nitrc-ce</label>
+          value='neurovault'> NeuroVault</label>
         <label><input type='checkbox' name='webservices_list[]'
           value='flywheel.io'> flywheel.io</label>
       </div>
@@ -291,9 +302,9 @@
         <label><input type='checkbox' name='vcs_code_why_not[]'
           value='unlearnable'> Too steep of a learning curve</label>
         <label><input type='checkbox' name='vcs_code_why_not[]'
-          value='unneeded'> I rarely code</label>
+          value='unneeded'> We rarely code</label>
         <label><input type='checkbox' name='vcs_code_why_not[]'
-          value='unintegrated'> Lack of integration with my tools/platform</label>
+          value='unintegrated'> Lack of integration with our tools/platform</label>
         <label><input type='checkbox' name='vcs_code_why_not[]'
           value='other'> Other</label>
       </div>
@@ -301,7 +312,7 @@
 
     <div class='tl-panel inverted badge-code'>
       <h2>Version Control for Data</h2>
-      <p>Does your use version control systems for your <strong>data</strong>?</p>
+      <p>Does your lab use version control systems for <strong>data</strong>?</p>
       <select name='vcs_data' required>
         <option value='' disabled selected hidden>— Select —</option>
         <option>Yes</option>
@@ -340,9 +351,9 @@
         <label><input type='checkbox' name='vcs_data_list[]'
           value='ipfs'> ipfs</label>
         <label><input type='checkbox' name='vcs_data_list[]'
-          value='dat'> dat</label>
+          value='dat'> Dat</label>
         <label><input type='checkbox' name='vcs_data_list[]'
-          value='datalad'> datalad</label>
+          value='datalad'> DataLad</label>
       </div>
     </div>
 
@@ -359,7 +370,7 @@
         <label><input type='checkbox' name='vcs_data_why_not[]'
           value='unlearnable'> Too steep of a learning curve</label>
         <label><input type='checkbox' name='vcs_data_why_not[]'
-          value='unintegrated'> Lack of integration with my tools/platform</label>
+          value='unintegrated'> Lack of integration with our tools/platform</label>
         <label><input type='checkbox' name='vcs_data_why_not[]'
           value='other'> Other</label>
       </div>
@@ -399,8 +410,8 @@
           value='prisma'> 3T Siemens Prisma</label>
         <label><input type='checkbox' name='scanners[]'
           value='achieva'> 3T Philips Achieva</label>
-        <label><input type='checkbox' name='scanners[]'
-          value='meg'> MEG</label>
+        <!--<label><input type='checkbox' name='scanners[]'
+            value='meg'> MEG</label>-->
       </div>
     </div>
 
@@ -434,21 +445,23 @@
 
     <div class="tl-panel badge-plus">
       <h2>Additional devices</h2>
-      <p>What additional acquisition devices does your lab use with the scanner(s)?</p>
+      <p>What additional acquisition devices does your lab use for MRI studies?</p>
       <div class='checkboxes extendable'>
         <label><input type='checkbox' name='add_devices[]'
           value='eyetracker'> Eye tracker</label>
         <label><input type='checkbox' name='add_devices[]'
           value='keypad'> Keypad</label>
+        <label><input type='checkbox' name='add_devices[]'
+          value='keypad'> Pulse oximeter or respiratory belt</label>
       </div>
     </div>
 
     <div class="tl-panel badge-cogs">
       <h2>DICOM conversion</h2>
-      <p>What conversion for DICOMs is used in your lab?</p>
+      <p>What conversion tool/procedure DICOMs is used in your lab?</p>
       <div class='checkboxes extendable'>
         <label><input type='checkbox' name='dcm_conv[]'
-          value='default'> just &ldquo;from scanner&rdquo;</label>
+          value='default'> as provided by &ldquo;the scanner&rdquo;</label>
         <label><input type='checkbox' name='dcm_conv[]'
           value='dcm2nii'> dcm2nii</label>
         <label><input type='checkbox' name='dcm_conv[]'
@@ -493,7 +506,7 @@
 
     <div class="tl-panel badge-wrench">
       <h2>Stimulation logs</h2>
-      <p>In those software packages &dash; does your lab usually tailor the logfile formats or use the standard formats?</p>
+      <p>In those software packages &dash; does your lab usually tailor the logfile format/content or use the standard formats?</p>
       <select name='custom_logs' required>
         <option value='' disabled selected hidden>— Select —</option>
         <option>Standard</option>
