@@ -55,7 +55,6 @@
 
 <main>
 <p id='blurb'>
-  <!-- TODO: Adapt -->
   The goal of the CBBS imaging platform is to develop and provide a shared
   computing infrastructure for brain imaging research in Magdeburg. This
   platform aims to streamline routine data preparation and processing tasks,
@@ -116,7 +115,7 @@
 
     <div class='tl-panel badge-pencil'>
       <h2>Contact</h2>
-      <p>What email address shall we use to contact your lab regarding CBBS imaging platform activities?</p>
+      <p>What email address should we use to contact your lab regarding CBBS imaging platform activities?</p>
       <input name='lab_contact' type='email' required>
     </div>
 
@@ -127,7 +126,7 @@
         <option value="" disabled selected hidden>— Select —</option>
         <option>Debian/Ubuntu</option>
         <option>RedHat/CentOS</option>
-        <option>OS X/iOS</option>
+        <option>macOS</option>
         <option>Windows</option>
         <option>Don't know</option>
         <option>Other</option>
@@ -154,7 +153,7 @@
 
     <div class='tl-panel inverted badge-laptop'>
       <h2>Shared infrastructure</h2>
-      <p>Does your lab conduct data analysis on remote workstations, computing clusters or other shared computing infrastructure?</p>
+      <p>Does your lab conduct data analysis on remote workstations, computing clusters, or other shared computing infrastructure?</p>
       <select name="use_shared" required>
         <option value="" disabled selected hidden>— Select —</option>
         <option>Yes</option>
@@ -163,8 +162,8 @@
     </div>
 
     <div class='tl-panel badge-cloud'>
-      <h2>Analysis webservices</h2>
-      <p>What webservices does your lab use for neuroimaging data analysis?</p>
+      <h2>Analysis web services</h2>
+      <p>What web services does your lab use for neuroimaging data analysis?</p>
       <div class='checkboxes extendable'>
         <label><input type='checkbox' name='webservices_list[]'
           value='nitrc-ce'> NITRC-CE</label>
@@ -238,7 +237,7 @@
 
     <div class="tl-panel badge-download-cloud">
       <h2>Desired analyses</h2>
-      <p>What analysis procedures/workflows would your lab most appreciate to be supported by the CBBS imaging platform?</p>
+      <p>What analysis procedures/workflows would your lab most appreciate being supported by the CBBS imaging platform?</p>
       <div class='checkboxes extendable'>
         <label><input type="checkbox" name="analyses_wanted[]"
           value="None"> None</label>
@@ -410,32 +409,30 @@
           value='prisma'> 3T Siemens Prisma</label>
         <label><input type='checkbox' name='scanners[]'
           value='achieva'> 3T Philips Achieva</label>
-        <!--<label><input type='checkbox' name='scanners[]'
-            value='meg'> MEG</label>-->
       </div>
     </div>
 
     <div class="tl-panel badge-database">
       <h2>Acquisitions</h2>
-      <p>How many hours of fMRI scans per month are approximately acquired by your lab on average?</p>
+      <p>How many hours of fMRI scans are acquired by your lab, on average, per month?</p>
       <input name="hrs_scan" type="number" min="0" required>
     </div>
 
     <div class="tl-panel badge-male">
       <h2>Human subjects</h2>
-      <p>Circa what percentage of acquisitions in your lab involve human subjects?</p>
+      <p>About what percentage of acquisitions in your lab involve human subjects?</p>
       <input name="human_subjects" type="number" min="0" max="100" step="5">
     </div>
 
     <div class="tl-panel badge-bed">
       <h2>Patients</h2>
-      <p>Circa what percentage of human subjects are patients?</p>
+      <p>About what percentage of human subjects are patients?</p>
       <input name="patient_subjects" type="number" min="0" max="100" step="5">
     </div>
 
     <div class="tl-panel badge-heartbeat">
       <h2>Physiological Data</h2>
-      <p>Does your lab normally acquire physiological data (pulse oximeter, respiratory belt etc.) in parallel to MRI?</p>
+      <p>Does your lab normally acquire physiological data (pulse oximeter, respiratory belt, etc.) in parallel to MRI?</p>
       <select name="physio_data" required>
         <option value="" disabled selected hidden>— Select —</option>
         <option>Yes</option>
@@ -458,7 +455,7 @@
 
     <div class="tl-panel badge-cogs">
       <h2>DICOM conversion</h2>
-      <p>What conversion tool/procedure DICOMs is used in your lab?</p>
+      <p>What conversion tool/procedure is used for DICOMs in your lab?</p>
       <div class='checkboxes extendable'>
         <label><input type='checkbox' name='dcm_conv[]'
           value='default'> as provided by &ldquo;the scanner&rdquo;</label>
@@ -516,7 +513,7 @@
 
     <div class="tl-panel badge-clock">
       <h2>Time until publication</h2>
-      <p>Please estimate how many months does it typically take in your lab from end of acquisition until submission of a publication?</p>
+      <p>In your lab, about how many months does it typically take from the end of acquisition until the submission of a publication?</p>
       <input name="pub_time" type="number" min="0" required>
     </div>
 
