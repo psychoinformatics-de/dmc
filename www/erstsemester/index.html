@@ -45,102 +45,26 @@
 </noscript>
 
 <header>
-  <h1>How Do <strong>You</strong> Science?</h1>
+    <h1><small>Wie war</small><br /><strong>Dein</strong> Start in Magdeburg?</h1>
   <a id='start' class='icon-right-open button'>Ja, unbedingt teilnehmen!</a>
-  <p>no&nbsp;email&nbsp;or&nbsp;account&nbsp;required</p>
+  <p>keine&nbsp;E-Mail&nbsp;oder&nbsp;Account&nbsp;notwendig</p>
 </header>
 
 <main>
 <p id='blurb'>
-  Tell us about your attitudes and experiences. With attitude.<br />
-  Conducted by Alex Waite, Michael Hanke, and a ferocious wombat.
+  Uns interessiert wie Du zu einem Studium hier in Magdeburg gekommen bist und welche
+  Erfahrungen Du beim Start gemacht hast.<br />
+  Bitte hilf uns mit Deinem Bericht, den Studienstart für zukünftige Jahrgänge zu verbessern.</br />
+  Es werden keine Informationen erfasst, die einen Rückschluss auf Deine Person ermöglichen. Alle Antworten sind freiwillig und Nicht-Teilnahme hat natürlich keine persönlichen Konsequenzen.</br />
+  Das Ganze dauert nur wenige Minuten.<br />
+  Bei Fragen und anderen Anliegen, wende Dich bitte an <a href="mailto:michael.hanke@ovgu.de">Michael Hanke</a>.
 </p>
 <form id='survey' autocomplete='off'>
   <input name='client_version' type='hidden' value='1' />
-
   <div class='timeline'>
-    <div class="tl-panel badge-clock visible">
-      <h2>Verfahrensdauer</h2>
-      <p>Wieviele Wochen sind zwischen Bewerbung und Zusage vergangen?</p>
-      <input name="apply_time" type="number" min="0" required>
-    </div>
 
-    <div class="tl-panel badge-university">
-      <h2>Studienort</h2>
-      <p>War Magdeburg Deine erste Wahl?</p>
-      <select name="first_choice" required>
-        <option value="" disabled selected hidden>— Auswahl —</option>
-        <option>Ja</option>
-        <option>Nein</option>
-      </select>
-      <script>document.addEventListener('DOMContentLoaded', function() {
-        fields['first_choice'].postValidation = function() {
-          var panel = getPanel(this);
-          if (this.value == 'Ja') {
-            hidePanel(fields['why_not']);
-            panel.dataset.nextPanel = 'grade';
-          }
-        }
-      });</script>
-    </div>
-
-    <div class="tl-panel badge-university">
-      <h2>Schade!</h2>
-      <p>Warum nicht?</p>
-      <input type="text" name="why_not">
-    </div>
-
-    <div class="tl-panel badge-university">
-      <h2>Abiturnote</h2>
-      <p>Mit welcher Abiturnote hast Du Dich beworben?</p>
-      <input name="grade" type="number"> <!-- TODO: does 'number' allow for decimal points? -->
-    </div>
-
-    <div class="tl-panel badge-university">
-      <h2>Erststudium</h2>
-      <p>Handelt es sich um Dein Erststudium?</p>
-      <select name="first_study" required>
-        <option value="" disabled selected hidden>— Auswahl —</option>
-        <option>Ja</option>
-        <option>Nein</option>
-      </select>
-    </div>
-
-    <div class="tl-panel badge-university">
-      <h2>Deine Meinung</h2>
-      <p>Was h&auml;ltst Du gut bzw. schlecht am Bewerbungsverfahren?</p>
-      <input name="judgement" type="text">
-    </div>
-
-    <div class="tl-panel badge-university">
-      <h2>Erstsemester-Service</h2>
-      <p>Welche Angebote des Erstsemester-Service hast Du genutzt?</p>
-      <div class="checkboxes extendable">
-        <!-- TODO: List -->
-        <label><input type='checkbox' name='services[]'
-          value='None'> Keine</label>
-      </div>
-    </div>
-
-    <!-- TODO: only if there was a choice other than 'None' above -->
-    <div class="tl-panel badge-university">
-      <h2>N&uuml;tzlichkeit</h2>
-      <p>Haben Dir diese Angebote geholfen?</p>
-      <select name="helpful">
-        <option value="" disabled selected hidden>— Auswahl —</option>
-        <option>Ja</option>
-        <option>Nein</option>
-      </select>
-    </div>
-
-    <div class="tl-panel bagde-university">
-      <h2>Verbesserungsvorschl&auml;ge</h2>
-      <p>Welche andere Unterst&uuml;tzung h&auml;ttest Du Dir gew&uuml;nscht?</p>
-      <input name="suggestion" type="text">
-    </div>
-
-    <div class='tl-panel badge-globe'>
-      <h2>Heimatland</h2>
+    <div class='tl-panel badge-globe visible'>
+      <h2>Wo kommst du her?</h2>
       <p>Aus welchem Bundesland kommst Du?</p>
       <select name='state'>
         <option value='' disabled selected hidden>— Auswahl —</option>
@@ -164,9 +88,121 @@
       </select>
     </div>
 
+    <div class="tl-panel badge-clock">
+      <h2>Alter</h2>
+      <p>Wie alt bist du?</p>
+      <input name="age" type="number" min="16" required>
+    </div>
+
+    <div class="tl-panel badge-university">
+      <h2>Abiturnote</h2>
+      <p>Mit welcher Abschlussnote (Abitur im BSc, Bachelor im MSc) hast du dich Abiturnote beworben?</p>
+      <input name="grade" type="number"> <!-- TODO: 'number' DOES NOT allow for decimal points? -->
+    </div>
+
+    <div class="tl-panel badge-clock">
+      <h2>Bewerbungsdauer</h2>
+      <p>Wieviele Wochen sind zwischen Deiner Bewerbung und dem Erhalt der Zusage aus Magdeburg vergangen?</p>
+      <input name="apply_time" type="number" min="0" required>
+    </div>
+
+    <div class="tl-panel badge-clock">
+      <h2>Zulassungstermin</h2>
+      <p>Wieviele Wochen <strong>vor</strong> der Einführungswoche hast Du Deine Zulassung in Magdeburg erhalten? Falls das erst nach der Einführungswoche war, gib eine negative Zahl an (z.B. "-2" für 2 Wochen danach)</p>
+      <input name="apply_time" type="number" required>
+    </div>
+
+    <div class="tl-panel badge-clock">
+      <h2>Zusagen</h2>
+      <p>Wieviele Zusagen hast Du insgesamt bekommen (inklusive Magdeburg)?</p>
+      <input name="approve_num" type="number" min="1" required>
+    </div>
+
+    <div class="tl-panel badge-university">
+      <h2>Erststudium</h2>
+      <p>Handelt es sich um Dein Erststudium (erstes B.Sc. oder M.Sc. Studium)?</p>
+      <select name="first_study" required>
+        <option value="" disabled selected hidden>— Auswahl —</option>
+        <option>Ja</option>
+        <option>Nein</option>
+      </select>
+    </div>
+
+    <div class="tl-panel badge-university">
+      <h2>Studienort</h2>
+      <p>War Magdeburg Deine erste Wahl?</p>
+      <select name="first_choice" required>
+        <option value="" disabled selected hidden>— Auswahl —</option>
+        <option>Ja</option>
+        <option>Nein</option>
+      </select>
+    </div>
+
+    <div class="tl-panel badge-university">
+      <h2>Wahlkriterien</h2>
+      <div class="checkboxes extendable">
+      <p>Welche Kriterien waren für Dich bei der Wahl des Studienortes entscheidend?</p>
+        <!-- TODO: List -->
+        <label><input type='checkbox' name='why[]'
+          value='dontcare'> War mir egal</label>
+        <label><input type='checkbox' name='why[]'
+          value='home'> Nähe zur Heimat</label>
+        <label><input type='checkbox' name='why[]'
+          value='science'> Wissenschaftliche Ausrichtung des Institutes/Universität</label>
+        <label><input type='checkbox' name='why[]'
+          value='city'> Attraktivität der Stadt und des Umfeldes</label>
+        <label><input type='checkbox' name='why[]'
+          value='cost'> Lebenshaltungskosten</label>
+      </div>
+    </div>
+
+    <div class="tl-panel badge-university">
+      <h2>Deine Meinung</h2>
+      <p>Im Vergleich zu anderen Hochschulen: Was fandest du besonders <strong>gut</strong> am Bewerbungsverfahren in Magdeburg?</p>
+      <input name="judgement_pos" type="text">
+    </div>
+
+    <div class="tl-panel badge-university">
+      <h2>Deine Meinung</h2>
+      <p>Im Vergleich zu anderen Hochschulen: Was fandest du besonders <strong>schlecht</strong> am Bewerbungsverfahren in Magdeburg?</p>
+      <input name="judgement_neg" type="text">
+    </div>
+
+    <div class="tl-panel badge-university">
+      <h2>Erstsemester-Angebote</h2>
+      <p>Welche Angebote für Erstsemester hast du in Magdeburg genutzt?</p>
+      <div class="checkboxes extendable">
+        <label><input type='checkbox' name='services_used[]'
+          value='None'> Keine</label>
+        <label><input type='checkbox' name='services_used[]'
+          value='studienberatung'> Individuelle Studienberatung</label>
+        <label><input type='checkbox' name='services_used[]'
+          value='dozentenrunde'> Dozentenrunde</label>
+      </div>
+    </div>
+
+    <div class="tl-panel badge-university">
+      <h2>Erstsemester-Angebote</h2>
+      <p>Welche Angebote für Erstsemester fandest Du hilfreich?</p>
+      <div class="checkboxes extendable">
+        <label><input type='checkbox' name='services_liked[]'
+          value='None'> Keine</label>
+        <label><input type='checkbox' name='services_liked[]'
+          value='studienberatung'> Individuelle Studienberatung</label>
+        <label><input type='checkbox' name='services_liked[]'
+          value='dozentenrunde'> Dozentenrunde</label>
+      </div>
+    </div>
+
+    <div class="tl-panel bagde-university">
+      <h2>Verbesserungsvorschl&auml;ge</h2>
+      <p>Welche andere Unterst&uuml;tzung oder Informationen h&auml;ttest Du Dir gew&uuml;nscht?</p>
+      <input name="suggestion" type="text">
+    </div>
+
     <div class='tl-panel inverted badge-glass'>
-      <h2>All Done!</h2>
-      <p>And <em>well done</em>.</p>
+      <h2>Das war's schon!</h2>
+      <p>Vielen Dank!</em>.</p>
       <a id='done' class='button' role='button' tabindex='0'><i class='icon-right-open'></i>Submit</a>
       <input name='done' type='hidden' />
     </div>
@@ -175,14 +211,14 @@
 </main>
 <footer>
   <p><small>
-    ©2015&ndash;2016 Alex Waite
+    ©2015&ndash;2017 Alex Waite
     <span class='break'>&nbsp;&mdash;&nbsp;</span>
     source code on <a href="https://github.com/psychoinformatics-de/dmc">GitHub</a>
     <br /><a href="http://psychoinformatics.de">psychoinformatics.de</a>
   </small></p>
 </footer>
 
-<script src="/js/survey.js"></script>
+<script src="/js/survey_german.js"></script>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
