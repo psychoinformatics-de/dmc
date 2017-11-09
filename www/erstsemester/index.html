@@ -77,7 +77,7 @@
         fields['first_choice'].postValidation = function() {
           var panel = getPanel(this);
           if (this.value == 'Ja') {
-            hidePanel(fields['why_not[]']);
+            hidePanel(fields['why_not']);
             panel.dataset.nextPanel = 'grade';
           }
         }
@@ -144,7 +144,7 @@
       <p>Aus welchem Bundesland kommst Du?</p>
       <select name='state'>
         <option value='' disabled selected hidden>— Auswahl —</option>
-        <option>Baden-Württemberg</option>
+        <option>Baden-W&uuml;rttemberg</option>
         <option>Bayern</option>
         <option>Berlin</option>
         <option>Brandenburg</option>
@@ -159,7 +159,7 @@
         <option>Sachsen</option>
         <option>Sachsen-Anhalt</option>
         <option>Schleswig-Holstein</option>
-        <option>Thüringen</option>
+        <option>Th&uuml;ringen</option>
         <option>Keines - ich komme nicht aus Deutschland</option>
       </select>
     </div>
