@@ -14,7 +14,7 @@ cwd = os.path.dirname(__file__)
 private_dir = opj(cwd, '../records/private')
 public_dir = opj(cwd, '../records/public')
 utc_now = datetime.datetime.now().strftime('%Y.%m.%d-%H.%M.%S')
-valid_surveys = ['neuroscience', 'datascience', 'demo', 'cbbs_imaging']
+valid_surveys = ['neuroscience', 'datascience', 'demo', 'cbbs_imaging', 'erstsemester']
 
 
 def get_client_ip(environ):
