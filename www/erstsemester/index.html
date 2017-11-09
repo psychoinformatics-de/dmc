@@ -93,7 +93,7 @@
     <div class="tl-panel badge-university">
       <h2>Abiturnote</h2>
       <p>Mit welcher Abiturnote hast Du Dich beworben?</p>
-      <input name="grade" type="number"> <!-- TODO: does 'number' allow for decimal points? -->
+      <input name="grade" type="number" step="0.1" min="1"> <!--TODO: What's max?-->
     </div>
 
     <div class="tl-panel badge-university">
@@ -109,7 +109,26 @@
     <div class="tl-panel badge-university">
       <h2>Deine Meinung</h2>
       <p>Was h&auml;ltst Du gut bzw. schlecht am Bewerbungsverfahren?</p>
-      <input name="judgement" type="text">
+      <textarea name="judgement" form="survey">Sag uns Deine Meinung.</textarea>
+      <br>
+      <!-- TODO: Probably move to survey.js and have a general treatment of textarea's class-->
+      <script>document.addEventListener('DOMContentLoaded', function() {
+
+        var panel = getPanel(fields['judgement']);
+        var button = document.createElement('a');
+        button.classList.add('button');
+        button.tabIndex = 0;
+        button.innerHTML = "<i class='icon-right-open'></i>N&auml;chste Frage";
+
+        var events = ['click', 'keypress'];
+        for (var j = 0, e; e = events[j++];) {
+          button.addEventListener(e, function() {
+            markValid(this);
+            scrollToNextPanel(this);
+          });
+        }
+        panel.appendChild(button);
+      });</script>
     </div>
 
     <div class="tl-panel badge-university">
