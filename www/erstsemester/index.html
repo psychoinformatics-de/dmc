@@ -120,7 +120,7 @@
 
     <div class="tl-panel badge-university">
       <h2>Erststudium</h2>
-      <p>Handelt es sich um Dein Erststudium (erstes B.Sc. oder M.Sc. Studium)?</p>
+      <p>Handelt es sich um Dein Erststudium (erstes B.Sc. oder M.Sc.&nbsp;Studium)?</p>
       <select name="first_study" required>
         <option value="" disabled selected hidden>— Auswahl —</option>
         <option>Ja</option>
@@ -148,7 +148,11 @@
         <label><input type='checkbox' name='why[]'
           value='home'> N&auml;he zur Heimat</label>
         <label><input type='checkbox' name='why[]'
-          value='science'> Wissenschaftliche Ausrichtung des Institutes/Universit&auml;t</label>
+          value='friends'> Freunde/Bekannte studieren hier</label>
+        <label><input type='checkbox' name='why[]'
+          value='science'> Wissenschaftliche Ausrichtung des Institutes</label>
+        <label><input type='checkbox' name='why[]'
+          value='uni'> Ruf der Universit&auml;t</label>
         <label><input type='checkbox' name='why[]'
           value='city'> Attraktivit&auml;t der Stadt und des Umfeldes</label>
         <label><input type='checkbox' name='why[]'
@@ -158,14 +162,58 @@
 
     <div class="tl-panel badge-university">
       <h2>Deine Meinung</h2>
-      <p>Im Vergleich zu anderen Hochschulen: Was fandest Du besonders <strong>gut</strong> am Bewerbungsverfahren in Magdeburg?</p>
-      <input name="judgement_pos" type="text">
+      <div class="checkboxes extendable">
+      <p>Im Vergleich zu anderen Hochschulen: Was fandest Du besonders <strong>gut</strong> am Studienstart?</p>
+        <label><input type='checkbox' name='judgement_pos[]'
+          value='noinfo'> Ich habe keine Information &uuml;ber andere Unis</label>
+        <label><input type='checkbox' name='judgement_pos[]'
+          value='application_speed'> Dauer von der Bewerbung bis zur Zusage</label>
+        <label><input type='checkbox' name='judgement_pos[]'
+          value='application_approvetime'> Zeitpunkt der Studienplatzzusage</label>
+        <label><input type='checkbox' name='judgement_pos[]'
+          value='website'> Studienrelevante Information auf der Uni-Webseite</label>
+        <label><input type='checkbox' name='judgement_pos[]'
+          value='contact'> Kontakt zu Ansprechpartnern bei Bewerbungsfragen</label>
+        <label><input type='checkbox' name='judgement_pos[]'
+          value='science_focus'> Info zur wissenschaftlichen Arbeit des Institutes</label>
+        <label><input type='checkbox' name='judgement_pos[]'
+          value='teaching_info'> Info zum Lehrinhalt/-gestaltung am Institut</label>
+        <label><input type='checkbox' name='judgement_pos[]'
+          value='family_friendly'> Info zur Familienfreundlichkeit der Universit&auml;t</label>
+        <label><input type='checkbox' name='judgement_pos[]'
+          value='student_life'> Info zum studentischen Leben in der Stadt</label>
+        <label><input type='checkbox' name='judgement_pos[]'
+          value='science_work'> Info zu M&ouml;glichkeiten zur studentischen Mitarbeit in
+          wissenschaftlichen Projekten</label>
+      </div>
     </div>
 
     <div class="tl-panel badge-university">
       <h2>Deine Meinung</h2>
-      <p>Im Vergleich zu anderen Hochschulen: Was fandest Du besonders <strong>schlecht</strong> am Bewerbungsverfahren in Magdeburg?</p>
-      <input name="judgement_neg" type="text">
+      <div class="checkboxes extendable">
+      <p>Im Vergleich zu anderen Hochschulen: Was fandest Du besonders <strong>schlecht</strong> am Studienstart?</p>
+        <label><input type='checkbox' name='judgement_neg[]'
+          value='noinfo'> Ich habe keine Information &uuml;ber andere Unis</label>
+        <label><input type='checkbox' name='judgement_neg[]'
+          value='application_speed'> Dauer von der Bewerbung bis zur Zusage</label>
+        <label><input type='checkbox' name='judgement_neg[]'
+          value='application_approvetime'> Zeitpunkt der Studienplatzzusage</label>
+        <label><input type='checkbox' name='judgement_neg[]'
+          value='website'> Studienrelevante Information auf der Uni-Webseite</label>
+        <label><input type='checkbox' name='judgement_neg[]'
+          value='contact'> Kontakt zu Ansprechpartnern bei Bewerbungsfragen</label>
+        <label><input type='checkbox' name='judgement_neg[]'
+          value='science_focus'> Info zur wissenschaftlichen Arbeit des Institutes</label>
+        <label><input type='checkbox' name='judgement_neg[]'
+          value='teaching_info'> Info zum Lehrinhalt/-gestaltung am Institut</label>
+        <label><input type='checkbox' name='judgement_neg[]'
+          value='family_friendly'> Info zur Familienfreundlichkeit der Universit&auml;t</label>
+        <label><input type='checkbox' name='judgement_neg[]'
+          value='student_life'> Info zum studentischen Leben in der Stadt</label>
+        <label><input type='checkbox' name='judgement_neg[]'
+          value='science_work'> Info zu M&ouml;glichkeiten zur studentischen Mitarbeit in
+          wissenschaftlichen Projekten</label>
+      </div>
     </div>
 
     <div class="tl-panel badge-university">
@@ -175,22 +223,34 @@
         <label><input type='checkbox' name='services_used[]'
           value='None'> Keine</label>
         <label><input type='checkbox' name='services_used[]'
+          value='servicecenter'> Informationen des Campus Service Center</label>
+        <label><input type='checkbox' name='services_used[]'
           value='studienberatung'> Individuelle Studienberatung</label>
         <label><input type='checkbox' name='services_used[]'
           value='dozentenrunde'> Dozentenrunde</label>
+        <label><input type='checkbox' name='services_used[]'
+          value='fachschaft_intro'> Einf&uuml;hrungsveranstaltung der Fachschaft</label>
+        <label><input type='checkbox' name='services_used[]'
+          value='fachschaft_mentor'> Mentorenprogramm der Fachschaft</label>
       </div>
     </div>
 
     <div class="tl-panel badge-university">
-      <h2>Erstsemester-Angebote</h2>
+      <h2>N&uuml;tzliche Angebote</h2>
       <p>Welche Angebote f&uuml;r Erstsemester fandest Du <strong>hilfreich</strong>?</p>
       <div class="checkboxes extendable">
         <label><input type='checkbox' name='services_liked[]'
           value='None'> Keine</label>
         <label><input type='checkbox' name='services_liked[]'
+          value='servicecenter'> Informationen des Campus Service Center</label>
+        <label><input type='checkbox' name='services_liked[]'
           value='studienberatung'> Individuelle Studienberatung</label>
         <label><input type='checkbox' name='services_liked[]'
           value='dozentenrunde'> Dozentenrunde</label>
+        <label><input type='checkbox' name='services_liked[]'
+          value='fachschaft_intro'> Einf&uuml;hrungsveranstaltung der Fachschaft</label>
+        <label><input type='checkbox' name='services_liked[]'
+          value='fachschaft_mentor'> Mentorenprogramm der Fachschaft</label>
       </div>
     </div>
 
