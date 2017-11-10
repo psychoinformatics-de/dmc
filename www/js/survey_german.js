@@ -92,7 +92,7 @@ function initSurvey(survey_name, survey, submit_button) {
     var button = document.createElement('a');
     button.classList.add('button');
     button.tabIndex = 0;
-    button.innerHTML = "<i class='icon-right-open'></i>Nächste Frage";
+    button.innerHTML = "<i class='icon-right-open'></i>N&auml;chste Frage";
 
     var events = ['click', 'keypress'];
     for (var j = 0, e; e = events[j++];) {
