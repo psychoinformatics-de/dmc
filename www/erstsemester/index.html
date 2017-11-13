@@ -65,7 +65,7 @@
 
     <div class='tl-panel badge-globe visible'>
       <h2>Wo kommst Du her?</h2>
-      <p>Aus welchem Bundesland kommst Du?</p>
+      <p>In welchem Bundesland hast du vor diesem Studium gelebt?</p>
       <select name='state'>
         <option value="" disabled selected hidden>— Auswahl —</option>
         <option value="bw">Baden-W&uuml;rttemberg</option>
@@ -101,6 +101,12 @@
     </div>
 
     <div class="tl-panel badge-clock">
+      <h2>Bewerbungen</h2>
+      <p>An wie vielen Hochschulen hast du dich für ein Psychologiestudium beworben?</p>
+      <input name="apply_num" type="number" min="1" required>
+    </div>
+
+    <div class="tl-panel badge-clock">
       <h2>Bewerbungsdauer</h2>
       <p>Wieviele Wochen sind zwischen Deiner Bewerbung und dem Erhalt der Zusage aus Magdeburg vergangen?</p>
       <input name="apply_duration" type="number" min="0" required>
@@ -128,6 +134,12 @@
       </select>
     </div>
 
+    <div class="tl-panel bagde-university">
+      <h2>Bisherige Uni</h2>
+      <p>Wenn du aktuell im Master studierst, an welcher Uni hast du direkt vorher studiert (Freitextantwort oder "-" wenn im Bachelor)?</p>
+      <input name="olduni" type="text">
+    </div>
+
     <div class="tl-panel badge-university">
       <h2>Studienort</h2>
       <p>War Magdeburg Deine erste Wahl?</p>
@@ -141,29 +153,52 @@
     <div class="tl-panel badge-university">
       <h2>Wahlkriterien</h2>
       <div class="checkboxes extendable">
-      <p>Welche Kriterien waren f&uuml;r Dich bei der Wahl des Studienortes entscheidend?</p>
+      <p>Welche Kriterien waren f&uuml;r Dich bei der Wahl des Studienortes entscheidend (alles Zutreffende ausw&auml;hlen)?</p>
         <!-- TODO: List -->
         <label><input type='checkbox' name='why[]'
           value='dontcare'> War mir egal</label>
         <label><input type='checkbox' name='why[]'
           value='home'> N&auml;he zur Heimat</label>
         <label><input type='checkbox' name='why[]'
-          value='friends'> Freunde/Bekannte studieren hier</label>
+          value='friends'> Partner/Freunde/Bekannte studieren oder leben hier</label>
         <label><input type='checkbox' name='why[]'
-          value='science'> Wissenschaftliche Ausrichtung des Institutes</label>
+          value='focus'> Inhaltliche Schwerpunkte des Studiengangs</label>
+        <label><input type='checkbox' name='why[]'
+          value='numstudents'> Anzahl der Studierenden im Studiengang</label>
+        <label><input type='checkbox' name='why[]'
+          value='science'> Forschungsschwerpunkt des Institutes</label>
         <label><input type='checkbox' name='why[]'
           value='uni'> Ruf der Universit&auml;t</label>
         <label><input type='checkbox' name='why[]'
+          value='utilities'> Ausstattung der Uni (Bibliothek, Computer-Labore, ...)</label>
+        <label><input type='checkbox' name='why[]'
+          value='family'> Familienfreundlichkeit der Universit&auml;t</label>
+        <label><input type='checkbox' name='why[]'
           value='city'> Attraktivit&auml;t der Stadt und des Umfeldes</label>
         <label><input type='checkbox' name='why[]'
-          value='cost'> Lebenshaltungskosten</label>
+          value='cost'> Lebenshaltungskosten und Wohnsituation</label>
+        <label><input type='checkbox' name='why[]'
+          value='fees'> H&ouml;he der Semesterbeitr&auml;ge</label>
       </div>
     </div>
 
     <div class="tl-panel badge-university">
-      <h2>Deine Meinung</h2>
+      <h2>Informationsquellen</h2>
       <div class="checkboxes extendable">
-      <p>Im Vergleich zu anderen Hochschulen: Was fandest Du besonders <strong>gut</strong> am Studienstart?</p>
+      <p>Woher hast du vom Studiengang hier in Magdeburg erfahren (alles Zutreffende ausw&auml;hlen)?</p>
+        <label><input type='checkbox' name='source[]'
+          value='friends'> Freunde/Bekannte die hier studieren</label>
+        <label><input type='checkbox' name='source[]'
+          value='ranking'> Hochschulranking</label>
+        <label><input type='checkbox' name='source[]'
+          value='ads'> Werbung der Universität im Internet/Medien</label>
+      </div>
+    </div>
+
+    <div class="tl-panel badge-university">
+      <h2>Was war gut?</h2>
+      <div class="checkboxes extendable">
+      <p>Im Vergleich zu anderen Hochschulen: Was fandest Du besonders <strong>gut</strong> am Studienstart (alles Zutreffende ausw&auml;hlen)?</p>
         <label><input type='checkbox' name='judgement_pos[]'
           value='noinfo'> Ich habe keine Information &uuml;ber andere Unis</label>
         <label><input type='checkbox' name='judgement_pos[]'
@@ -189,9 +224,9 @@
     </div>
 
     <div class="tl-panel badge-university">
-      <h2>Deine Meinung</h2>
+      <h2>Was war schlecht?</h2>
       <div class="checkboxes extendable">
-      <p>Im Vergleich zu anderen Hochschulen: Was fandest Du besonders <strong>schlecht</strong> am Studienstart?</p>
+      <p>Im Vergleich zu anderen Hochschulen: Was fandest Du besonders <strong>schlecht</strong> am Studienstart (alles Zutreffende ausw&auml;hlen)?</p>
         <label><input type='checkbox' name='judgement_neg[]'
           value='noinfo'> Ich habe keine Information &uuml;ber andere Unis</label>
         <label><input type='checkbox' name='judgement_neg[]'
@@ -218,7 +253,7 @@
 
     <div class="tl-panel badge-university">
       <h2>Erstsemester-Angebote</h2>
-      <p>Welche Angebote f&uuml;r Erstsemester hast Du in Magdeburg genutzt?</p>
+      <p>Welche Angebote f&uuml;r Erstsemester hast Du in Magdeburg genutzt (alles Zutreffende ausw&auml;hlen)?</p>
       <div class="checkboxes extendable">
         <label><input type='checkbox' name='services_used[]'
           value='None'> Keine</label>
@@ -237,7 +272,7 @@
 
     <div class="tl-panel badge-university">
       <h2>N&uuml;tzliche Angebote</h2>
-      <p>Welche Angebote f&uuml;r Erstsemester fandest Du <strong>hilfreich</strong>?</p>
+      <p>Welche Angebote f&uuml;r Erstsemester fandest Du <strong>hilfreich</strong> (alles Zutreffende ausw&auml;hlen)?</p>
       <div class="checkboxes extendable">
         <label><input type='checkbox' name='services_liked[]'
           value='None'> Keine</label>
@@ -255,9 +290,15 @@
     </div>
 
     <div class="tl-panel bagde-university">
+      <h2>Fehlende Information</h2>
+	  <p>Welche Informationen sollten von der Hochschule im Vorfeld der Bewerbung besser kommuniziert werden (Freitextantwort oder "-")?</p>
+      <input name="missinginfo" type="text">
+    </div>
+
+    <div class="tl-panel bagde-university">
       <h2>Verbesserungsvorschl&auml;ge</h2>
-      <p>Welche andere Unterst&uuml;tzung oder Informationen h&auml;ttest Du Dir gew&uuml;nscht?</p>
-      <input name="suggestion" type="text">
+      <p>Welche andere Unterst&uuml;tzung h&auml;ttest Du Dir gew&uuml;nscht (Freitextantwort oder "-")?</p>
+      <input name="othersupport" type="text">
     </div>
 
     <div class='tl-panel inverted badge-glass'>
