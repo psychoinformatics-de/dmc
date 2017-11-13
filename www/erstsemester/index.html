@@ -7,7 +7,7 @@
   <meta name="description" content="Umfrage Studienbewerbung" />
   <meta name="author" content="Psychoinformatics Lab" />
 
-  <title>How Do You Science?</title>
+  <title>Erstsemesterstart in Magdeburg</title>
 
   <link rel='stylesheet' href='/css/dmc.css' />
   <link rel='stylesheet' href='/css/survey.css' />
@@ -63,7 +63,17 @@
   <input name='client_version' type='hidden' value='1' />
   <div class='timeline'>
 
-    <div class='tl-panel badge-globe visible'>
+    <div class="tl-panel badge-university visible">
+      <h2>Studienbeginner</h2>
+      <p>Bist du aktuell im 1.&nbsp;Semester des Bachelor oder Masterstudiengangs Psychologie?</p>
+      <select name="first_semester" required>
+        <option value="" disabled selected hidden>— Auswahl —</option>
+        <option>Ja</option>
+        <option>Nein</option>
+      </select>
+    </div>
+
+    <div class='tl-panel badge-globe'>
       <h2>Wo kommst Du her?</h2>
       <p>In welchem Bundesland hast du vor diesem Studium gelebt?</p>
       <select name='state'>
@@ -115,7 +125,7 @@
     <div class="tl-panel badge-clock">
       <h2>Zulassungstermin</h2>
       <p>Wieviele Wochen <strong>vor</strong> der Einf&uuml;hrungswoche hast Du Deine Zulassung in Magdeburg erhalten? Falls das erst nach der Einf&uuml;hrungswoche war, gib eine negative Zahl an (z.B. "-2" f&uuml;r 2 Wochen danach)</p>
-      <input name="approve_time" type="number" required>
+      <input name="approve_time" type="number" min="-8" required>
     </div>
 
     <div class="tl-panel badge-clock">
@@ -136,7 +146,7 @@
 
     <div class="tl-panel bagde-university">
       <h2>Bisherige Uni</h2>
-      <p>Wenn du aktuell im Master studierst, an welcher Uni hast du direkt vorher studiert (Freitextantwort oder "-" wenn im Bachelor)?</p>
+      <p>Wenn du aktuell im Master studierst, an welcher Uni hast du direkt vorher studiert (Freitextantwort oder "-", wenn im Bachelor)?</p>
       <input name="olduni" type="text">
     </div>
 
