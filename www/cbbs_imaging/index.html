@@ -235,24 +235,6 @@
       </div>
     </div>
 
-    <div class="tl-panel badge-download-cloud">
-      <h2>Desired analyses</h2>
-      <p>What analysis procedures/workflows would your lab most appreciate being supported by the CBBS imaging platform?</p>
-      <div class='checkboxes extendable'>
-        <label><input type="checkbox" name="analyses_wanted[]"
-          value="None"> None</label>
-      </div>
-    </div>
-
-    <div class="tl-panel badge-upload-cloud">
-      <h2>Your contribution</h2>
-      <p>What methods/tools developed in your lab would you like to provide through the CBBS imaging platform?</p>
-      <div class='checkboxes extendable'>
-        <label><input type="checkbox" name="analyses_contrib[]"
-          value="None"> None</label>
-      </div>
-    </div>
-
     <div class='tl-panel inverted badge-code'>
       <h2>Version Control for Code</h2>
       <p>Does your lab use version control systems for <strong>code</strong>?</p>
@@ -430,6 +412,18 @@
       <input name="patient_subjects" type="number" min="0" max="100" step="5">
     </div>
 
+    <div class="tl-panel badge-clock">
+      <h2>Time until publication</h2>
+      <p>In your lab, about how many months does it typically take from the end of acquisition until the submission of a publication?</p>
+      <input name="pub_time" type="number" min="0" required>
+    </div>
+
+    <div class="tl-panel badge-pencil">
+      <h2>Imaging publications</h2>
+      <p>In your lab, how many papers of neuroimaging studies are published each year (on average)?</p>
+      <input name="pub_num" type="number" min="0" required>
+    </div>
+
     <div class="tl-panel badge-heartbeat">
       <h2>Physiological Data</h2>
       <p>Does your lab normally acquire physiological data (pulse oximeter, respiratory belt, etc.) in parallel to MRI?</p>
@@ -511,11 +505,25 @@
       </select>
     </div>
 
-    <div class="tl-panel badge-clock">
-      <h2>Time until publication</h2>
-      <p>In your lab, about how many months does it typically take from the end of acquisition until the submission of a publication?</p>
-      <input name="pub_time" type="number" min="0" required>
+    <div class="tl-panel badge-download-cloud">
+      <h2>Desired analyses</h2>
+      <p>What analysis procedures/workflows would your lab most appreciate being supported by the CBBS imaging platform? Please add names of analysis techniques and tools to the list. Supported techniques enable users to compute analyses
+remotely and configure them via straightforward web-GUIs.</p>
+      <div class='checkboxes extendable'>
+        <label><input type="checkbox" name="analyses_wanted[]"
+          value="None"> None</label>
+      </div>
     </div>
+
+    <div class="tl-panel badge-upload-cloud">
+      <h2>Your contribution</h2>
+      <p>What methods/tools developed in your lab would you like to provide through the CBBS imaging platform? Please give names or short descriptions, we will contact labs for more information.</p>
+      <div class='checkboxes extendable'>
+        <label><input type="checkbox" name="analyses_contrib[]"
+          value="None"> None</label>
+      </div>
+    </div>
+
 
     <!-- TODO: typical issues with convertion, loss of data, etc. ? -->
 
